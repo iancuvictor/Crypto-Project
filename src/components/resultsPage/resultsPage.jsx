@@ -13,11 +13,17 @@ function ResultsPage() {
         }
     };
 
-    const { data, status } = useQuery('coin', () => 
+    const { data, status } = useQuery('coins', () =>
         fetch('https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc', options)
             .then(res => res.json()
-        )
+            ),
+        {
+            staleTime: 0,
+            refetchOnWindowFocus: false,
+            refetchInterval: 0
+        }
     );
+    console.log(data);
 
     if (status === 'loading') {
         return <p>Loading...</p>
@@ -31,7 +37,14 @@ function ResultsPage() {
         <div className={css.container}>
             {data.data.coins.map(function (coin) {
                 return (
-                    <CoinCard coinName={coin.name} coinIcon={coin.iconUrl} key={coin.uuid} />
+                    <CoinCard
+                        coinName={coin.name}
+                        coinIcon={coin.iconUrl}
+                        symbol={coin.symbol}
+                        price={Math.round(coin.price * 1000) / 1000}
+                        rank={coin.rank}
+                        key={coin.uuid}
+                    />
                 )
             }
             )}

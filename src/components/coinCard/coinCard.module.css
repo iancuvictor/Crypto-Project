@@ -1,12 +1,19 @@
 .coinCardBody{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
     width: 90%;
+    padding: 5px 20px;
     border-bottom: 1px solid #303C55;
     background: #F4F5F9;
     transition: 0.12s ease-out;
+}
+
+.coin, .price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .coinCardBody:hover{
