@@ -2,7 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+    width: 90%;
+    border-bottom: 1px solid #303C55;
+    background: #F4F5F9;
+    transition: 0.12s ease-out;
+}
 
+.coinCardBody:hover{
+    background: #fff;
 }
 
 .coinCardBody h1{
