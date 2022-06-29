@@ -1,0 +1,15 @@
+.coinCardBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.coinCardBody h1{
+    font-size: 16px;
+}
+
+.coinIcon{
+    width: 24px;
+}
+
