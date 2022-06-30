@@ -63,7 +63,7 @@ function ResultsPage() {
                 const isPositive = coin.change;
                 let comparationResult;
 
-                if (isPositive < 0){
+                if (isPositive < 0) {
                     comparationResult = '#FF6161'
                 } else {
                     comparationResult = '#18E08A'
@@ -81,19 +81,45 @@ function ResultsPage() {
                         marketCap={coin.marketCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         chart={
                             <Line data={{
-                                    labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
-                                    datasets: [{
-                                        stepped: false,
-                                        pointBorderColor: 'rgba(0,0,0,0)',
-                                        label: 'My First Dataset',
-                                        pointStyle: 'dash',
-                                        data: coin.sparkline,
-                                        fill: true,
-                                        borderColor: comparationResult,
-                                        borderWidth: 2,
-                                        borderCapStyle: 'square',
-                                        tension: 0
-                                    }]
+                                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
+                                datasets: [{
+                                    pointBorderColor: 'rgba(0,0,0,0)',
+                                    label: 'My First Dataset',
+                                    pointStyle: 'dash',
+                                    data: coin.sparkline,
+                                    fill: true,
+                                    borderColor: comparationResult,
+                                    borderWidth: 2,
+                                    borderCapStyle: 'square',
+                                    tension: 0
+                                }]
+                            }} options={{
+                                scales: {
+                                    responsive: true,
+                                    maintainAspectRatio: true,
+                                    x: {
+                                        grid: {
+                                            display: false,
+                                            drawBorder: false
+                                        },
+                                        ticks: {
+                                            display: false
+                                        },
+                                    },
+                                    y: {
+                                        grid: {
+                                            display: false,
+                                            drawBorder: false
+                                        },
+                                        ticks: {
+                                            display: false
+                                        }
+                                    },
+                                    
+                                },
+                                legend: {
+                                    display: false
+                                },
                             }} />}
                         key={coin.uuid}
                     />

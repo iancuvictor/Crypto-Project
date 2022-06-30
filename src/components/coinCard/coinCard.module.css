@@ -3,11 +3,12 @@
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    padding: 0px 20px;
+    padding: 0px 50px;
     border-bottom: 1px solid #303C55;
     background: #F4F5F9;
     transition: 0.12s ease-out;
     font-family: Cera;
+    cursor: pointer;
 }
 
 .coin, .price, .dailyChange, .dailyVolume, .marketCap{
@@ -20,6 +21,11 @@
 
 .rank{
     flex-basis: 5%;
+}
+
+.chart{
+    width: 8%;
+    padding: 10px 0px;
 }
 
 .coinCardBody:hover{

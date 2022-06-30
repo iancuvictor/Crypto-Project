@@ -29,7 +29,7 @@ function CoinCard(props) {
       <div className={css.marketCap}>
         <p>{props.marketCap}</p>
       </div>
-      <div>
+      <div className={css.chart}>
         {props.chart}
       </div>
     </div>
