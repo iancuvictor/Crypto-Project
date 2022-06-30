@@ -2,10 +2,17 @@ import { React } from 'react';
 import { CoinCard } from '../exports';
 import css from './resultsPage.module.css';
 import { useQuery } from 'react-query';
-import { options } from '../../utils/fetchApi';
 
 
 function ResultsPage() {
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
+            'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
+        }
+    };
 
     const { data, status } = useQuery('coins', () =>
         fetch('https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc', options)
