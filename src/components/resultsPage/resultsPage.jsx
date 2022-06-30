@@ -9,7 +9,7 @@ function ResultsPage() {
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'process.env.REACT_APP_API_KEY',
+            'X-RapidAPI-Key': 'b2b76c8ec9mshe6c789928c5d6f7p12e8fajsn9cfa458b4e99',
             'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
         }
     };
