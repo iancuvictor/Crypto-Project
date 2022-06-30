@@ -39,6 +39,7 @@ function ResultsPage() {
     let orderCriteria = 'marketCap'; // price marketCap 24hVolume change listedAt
 
     const { data, status } = useQuery('coins', () =>
+
         fetch(`https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=${orderCriteria}&orderDirection=desc`, options)
             .then(res => res.json()
             ),
@@ -47,11 +48,16 @@ function ResultsPage() {
             refetchOnWindowFocus: false,
             refetchInterval: 0
         }
+
     );
     console.log(data);
 
     if (status === 'loading') {
-        return <p>Loading...</p>
+        return (
+            <div className={css.loadingScreen}>
+                <h1>Loading</h1>
+            </div>
+        )
     }
 
     if (status === 'error') {
@@ -118,7 +124,7 @@ function ResultsPage() {
                                             display: false
                                         }
                                     },
-                                    
+
                                 },
                                 legend: {
                                     display: false
