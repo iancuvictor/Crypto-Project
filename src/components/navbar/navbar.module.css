@@ -1,0 +1,17 @@
+.navbarBody{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0px;
+    background: #000;
+    height: 30px;
+    color: #fff;
+    position: sticky;
+    top: 0px;
+}
+
+.navbarBody h1{
+    font-family: Cera;
+    font-weight: normal;
+}

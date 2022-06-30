@@ -14,8 +14,10 @@ function ResultsPage() {
         }
     };
 
+    let orderCriteria = 'marketCap'; // price marketCap 24hVolume change listedAt
+
     const { data, status } = useQuery('coins', () =>
-        fetch('https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc', options)
+        fetch(`https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=${orderCriteria}&orderDirection=desc`, options)
             .then(res => res.json()
             ),
         {
@@ -36,14 +38,19 @@ function ResultsPage() {
 
     return (
         <div className={css.container}>
+
+
             {data.data.coins.map(function (coin) {
                 return (
                     <CoinCard
                         coinName={coin.name}
                         coinIcon={coin.iconUrl}
                         symbol={coin.symbol}
-                        price={Math.round(coin.price * 1000) / 1000}
+                        price={(Math.round(coin.price * 100) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         rank={coin.rank}
+                        dailyChange={coin.change}
+                        dailyVolume={coin['24hVolume'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        marketCap={coin.marketCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         key={coin.uuid}
                     />
                 )

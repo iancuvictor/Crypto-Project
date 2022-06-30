@@ -3,17 +3,32 @@ import css from './coinCard.module.css';
 import { AiFillDollarCircle } from 'react-icons/ai';
 
 function CoinCard(props) {
+
+  const isPositive = props.dailyChange;
+
   return (
     <div className={css.coinCardBody}>
+      <p className={css.rank}>{props.rank}</p>
       <div className={css.coin}>
         <img className={css.coinIcon} src={props.coinIcon} alt='Coin Icon' />
-        <h1>{props.coinName} ({props.symbol})</h1>
+        <p>{props.coinName} <span style={{ color: '#4D4E52'}}>({props.symbol})</span></p>
       </div>
       <div className={css.price}>
-        <AiFillDollarCircle size={25} />
+        <AiFillDollarCircle size={24} />
         <p>{props.price}</p>
       </div>
-      <p>{props.rank}</p>
+      <div className={css.dailyChange}>
+        {isPositive > 0
+          ? <p style={{ color: '#208F55' }}>+{props.dailyChange}%</p>
+          : <p style={{ color: '#D82F2F' }}>{props.dailyChange}%</p>
+        }
+      </div>
+      <div className={css.dailyVolume}>
+        <p>{props.dailyVolume}</p>
+      </div>
+      <div className={css.marketCap}>
+        <p>{props.marketCap}</p>
+      </div>
     </div>
   );
 };
