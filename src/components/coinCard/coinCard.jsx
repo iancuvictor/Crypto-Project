@@ -29,6 +29,9 @@ function CoinCard(props) {
       <div className={css.marketCap}>
         <p>{props.marketCap}</p>
       </div>
+      <div>
+        {props.chart}
+      </div>
     </div>
   );
 };

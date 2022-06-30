@@ -2,6 +2,26 @@ import { React } from 'react';
 import { CoinCard } from '../exports';
 import css from './resultsPage.module.css';
 import { useQuery } from 'react-query';
+import { Line } from 'react-chartjs-2';
+import {
+    Chart,
+    LineController,
+    LineElement,
+    PointElement,
+    LinearScale,
+    CategoryScale,
+    Title,
+    BarElement,
+} from 'chart.js'
+Chart.register(
+    LineController,
+    LineElement,
+    BarElement,
+    PointElement,
+    LinearScale,
+    CategoryScale,
+    Title,
+)
 
 
 function ResultsPage() {
@@ -33,14 +53,22 @@ function ResultsPage() {
     }
 
     if (status === 'error') {
-        return <p>An error happened, please stand by</p>
+        return <p>An error happened because I was drunk when I wrote this program. I am sorry. (the dev)</p>
     }
 
     return (
         <div className={css.container}>
-
-
             {data.data.coins.map(function (coin) {
+
+                const isPositive = coin.change;
+                let comparationResult;
+
+                if (isPositive < 0){
+                    comparationResult = '#FF6161'
+                } else {
+                    comparationResult = '#18E08A'
+                }
+
                 return (
                     <CoinCard
                         coinName={coin.name}
@@ -51,6 +79,22 @@ function ResultsPage() {
                         dailyChange={coin.change}
                         dailyVolume={coin['24hVolume'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         marketCap={coin.marketCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        chart={
+                            <Line data={{
+                                    labels: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25],
+                                    datasets: [{
+                                        stepped: false,
+                                        pointBorderColor: 'rgba(0,0,0,0)',
+                                        label: 'My First Dataset',
+                                        pointStyle: 'dash',
+                                        data: coin.sparkline,
+                                        fill: true,
+                                        borderColor: comparationResult,
+                                        borderWidth: 2,
+                                        borderCapStyle: 'square',
+                                        tension: 0
+                                    }]
+                            }} />}
                         key={coin.uuid}
                     />
                 )
