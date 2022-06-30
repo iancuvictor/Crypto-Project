@@ -12,6 +12,7 @@ import {
     CategoryScale,
     Title,
     BarElement,
+    Filler,
 } from 'chart.js'
 Chart.register(
     LineController,
@@ -21,6 +22,7 @@ Chart.register(
     LinearScale,
     CategoryScale,
     Title,
+    Filler,
 )
 
 
@@ -64,9 +66,9 @@ function ResultsPage() {
                 let comparationResult;
 
                 if (isPositive < 0) {
-                    comparationResult = '#FF6161'
+                    comparationResult = 'rgba(255,97,97'
                 } else {
-                    comparationResult = '#18E08A'
+                    comparationResult = 'rgba(24,224,138'
                 }
 
                 return (
@@ -87,6 +89,7 @@ function ResultsPage() {
                                     label: 'My First Dataset',
                                     pointStyle: 'dash',
                                     data: coin.sparkline,
+                                    backgroundColor: comparationResult + ',0.3)',
                                     fill: true,
                                     borderColor: comparationResult,
                                     borderWidth: 2,
