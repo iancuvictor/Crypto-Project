@@ -5,6 +5,7 @@ import { AiFillDollarCircle } from 'react-icons/ai';
 function CoinCard(props) {
 
   const isPositive = props.dailyChange;
+  const hasMarketCap = props.marketCap;
 
   return (
     <div className={css.coinCardBody}>
@@ -19,7 +20,7 @@ function CoinCard(props) {
       </div>
       <div className={css.dailyChange}>
         {isPositive > 0
-          ? <p style={{ color: '#208F55' }}>+{props.dailyChange}%</p>
+          ? <p style={{ color: '#18E08A' }}>+{props.dailyChange}%</p>
           : <p style={{ color: '#D82F2F' }}>{props.dailyChange}%</p>
         }
       </div>
@@ -27,7 +28,10 @@ function CoinCard(props) {
         <p>{props.dailyVolume}</p>
       </div>
       <div className={css.marketCap}>
-        <p>{props.marketCap}</p>
+        {hasMarketCap === 'No market cap!'
+          ? <p style={{ color: '#D82F2F' }}>{props.marketCap}</p>
+          : <p>{props.marketCap}</p>
+        }
       </div>
       <div className={css.chart}>
         {props.chart}

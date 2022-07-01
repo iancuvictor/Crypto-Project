@@ -9,6 +9,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         <Navbar/>
+
         <ResultsPage />
       </div>
     </QueryClientProvider>

@@ -1,12 +1,6 @@
 .navbarBody{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 20px 0px;
-    background: #000;
-    height: 30px;
-    color: #fff;
+    flex-direction: column;
     position: sticky;
     top: 0px;
 }
@@ -14,4 +8,20 @@
 .navbarBody h1{
     font-family: Cera;
     font-weight: normal;
+}
+
+.top{
+    background: #000;
+    width: 100%;
+    height: 50px;
+}
+
+.bottom{
+    background-color: #F4F5F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #9FA5BE;
 }

@@ -1,7 +1,18 @@
 .container{
     display: flex;
+    justify-content: center;
+}
+
+.results{
+    display: flex;
     flex-direction: column;
     align-items: center;
+    width: 60%;
+}
+
+.results h1{
+    font-family: Cera;
+    align-self: flex-start;
 }
 
 .filters{

@@ -3,30 +3,13 @@ import { CoinCard } from '../exports';
 import css from './resultsPage.module.css';
 import { useQuery } from 'react-query';
 import { Line } from 'react-chartjs-2';
-import {
-    Chart,
-    LineController,
-    LineElement,
-    PointElement,
-    LinearScale,
-    CategoryScale,
-    Title,
-    BarElement,
-    Filler,
-} from 'chart.js'
-Chart.register(
-    LineController,
-    LineElement,
-    BarElement,
-    PointElement,
-    LinearScale,
-    CategoryScale,
-    Title,
-    Filler,
-)
+import { Chart, LineController, LineElement, PointElement, LinearScale, CategoryScale, Title, BarElement, Filler } from 'chart.js';
+Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, Title, BarElement, Filler );
 
 
 function ResultsPage() {
+
+    // fetch data from the api
 
     const options = {
         method: 'GET',
@@ -36,11 +19,11 @@ function ResultsPage() {
         }
     };
 
-    let orderCriteria = 'marketCap'; // price marketCap 24hVolume change listedAt
+    let orderCriteria = 'marketCap'; // price marketCap 24hVolume change listedAt (posible options)
 
     const { data, status } = useQuery('coins', () =>
 
-        fetch(`https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=${orderCriteria}&orderDirection=desc`, options)
+        fetch(`https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=${orderCriteria}&orderDirection=desc&limit=100`, options)
             .then(res => res.json()
             ),
         {
@@ -52,6 +35,8 @@ function ResultsPage() {
     );
     console.log(data);
 
+    // ### ends here ^ ###
+
     if (status === 'loading') {
         return (
             <div className={css.loadingScreen}>
@@ -61,20 +46,38 @@ function ResultsPage() {
     }
 
     if (status === 'error') {
-        return <p>An error happened because I was drunk when I wrote this program. I am sorry. (the dev)</p>
+        return <p>While this is being fixed, you should go do some push-ups.</p>
     }
 
     return (
         <div className={css.container}>
+            <div className={css.results}>
+            <h1>Cryptocurrency Prices and Statistics</h1>
             {data.data.coins.map(function (coin) {
 
-                const isPositive = coin.change;
+                // declarations
+
+                let labels = Array.from(coin.sparkline.keys());
                 let comparationResult;
+                let marketCapValue;
+
+                // Checks if the preLast change value is lower/higher than the last change value, then it displays a color accordingly. 
+
+                const isPositive = coin.change;
 
                 if (isPositive < 0) {
                     comparationResult = 'rgba(255,97,97'
                 } else {
                     comparationResult = 'rgba(24,224,138'
+                }
+
+                // ends here ^
+
+                // Check if marketCap value is null
+                if(coin.marketCap === null){
+                    marketCapValue = 'No market cap!';
+                } else {
+                    marketCapValue = coin.marketCap;
                 }
 
                 return (
@@ -86,94 +89,57 @@ function ResultsPage() {
                         rank={coin.rank}
                         dailyChange={coin.change}
                         dailyVolume={coin['24hVolume'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                        marketCap={coin.marketCap.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        marketCap={marketCapValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         chart={
-                            <Line data={{
-                                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-                                datasets: [{
-                                    pointBorderColor: 'rgba(0,0,0,0)',
-                                    label: 'My First Dataset',
-                                    pointStyle: 'dash',
-                                    data: coin.sparkline,
-                                    backgroundColor: comparationResult + ',0.3)',
-                                    fill: true,
-                                    borderColor: comparationResult,
-                                    borderWidth: 2,
-                                    borderCapStyle: 'square',
-                                    tension: 0
-                                }]
-                            }} options={{
-                                scales: {
-                                    responsive: true,
-                                    maintainAspectRatio: true,
-                                    x: {
-                                        grid: {
-                                            display: false,
-                                            drawBorder: false
+                            <Line
+                                data={{
+                                    labels: labels,
+                                    datasets: [{
+                                        pointBorderColor: 'rgba(0,0,0,0)',
+                                        label: 'My First Dataset',
+                                        pointStyle: 'dash',
+                                        data: coin.sparkline,
+                                        backgroundColor: comparationResult + ',0.3)',
+                                        fill: true,
+                                        borderColor: comparationResult,
+                                        borderWidth: 2,
+                                        borderCapStyle: 'square',
+                                        tension: 0
+                                    }]
+                                }}
+                                options={{
+                                    scales: {
+                                        x: {
+                                            grid: {
+                                                display: false,
+                                                drawBorder: false
+                                            },
+                                            ticks: {
+                                                display: false
+                                            },
                                         },
-                                        ticks: {
-                                            display: false
+                                        y: {
+                                            grid: {
+                                                display: false,
+                                                drawBorder: false
+                                            },
+                                            ticks: {
+                                                display: false
+                                            }
                                         },
                                     },
-                                    y: {
-                                        grid: {
-                                            display: false,
-                                            drawBorder: false
-                                        },
-                                        ticks: {
-                                            display: false
-                                        }
+                                    legend: {
+                                        display: false
                                     },
-
-                                },
-                                legend: {
-                                    display: false
-                                },
-                            }} />}
+                                }} />}
                         key={coin.uuid}
                     />
                 )
             }
             )}
+            </div>
         </div>
     );
-
-
-    // I will keep this code here as well because it serves as a good "tempalte" in case someone (for some reason) doesn't want to use react-query in their projects.
-    // Basically almost everything from this point is "useless" code. =)
-
-    {/*const [coins, setCoins] = useState([]);
-
-    useEffect(() => {
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': 'b2b76c8ec9mshe6c789928c5d6f7p12e8fajsn9cfa458b4e99',
-                'X-RapidAPI-Host': 'coinranking1.p.rapidapi.com'
-            }
-        };
-        const fetchCoins = async () => {
-            const response = await fetch('https://coinranking1.p.rapidapi.com/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers%5B0%5D=1&orderBy=marketCap&orderDirection=desc', options);
-            const coinsData = await response.json();
-            setCoins(coinsData);
-            console.log(coinsData);
-            console.log(response);
-        }
-
-        fetchCoins();
-    }, [])
-
-
-    return (
-        <div className={css.container}>
-            {coins.data.coins.map(function (coin) {
-                return (
-                    <CoinCard coinName={coin.name} coinIcon={coin.iconUrl} key={coin.uuid} />
-                )
-            }
-            )}
-        </div>
-        );*/}
 };
 
 export default ResultsPage;
