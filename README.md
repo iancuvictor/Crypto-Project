@@ -1,8 +1,10 @@
 # CryptoCurrency Project - React.JS
 This is my first React.JS project that will be made entirely by me (Back end as well, not just the Front end) =)
-Because I am a good guy, I deployed this project so you don't have to run it yourself on your PC. 
 
-The project is made in:
+This is the link to the deployed website: https://iancuvictor.github.io/Crypto-Project/ <br>
+``(Note that it is still in production, so this project is still going through puberty)``
+
+The code is wrote in:
 - React.js
 - Html, css, JS
 
