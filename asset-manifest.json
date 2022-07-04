@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Crypto-Project/static/css/main.de9c0241.css",
+    "main.js": "/Crypto-Project/static/js/main.dd8df46e.js",
+    "static/media/neue-haas-display-7.ttf": "/Crypto-Project/static/media/neue-haas-display-7.0d0eccefca4089460861.ttf",
+    "index.html": "/Crypto-Project/index.html",
+    "main.de9c0241.css.map": "/Crypto-Project/static/css/main.de9c0241.css.map",
+    "main.dd8df46e.js.map": "/Crypto-Project/static/js/main.dd8df46e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.de9c0241.css",
+    "static/js/main.dd8df46e.js"
+  ]
+}
