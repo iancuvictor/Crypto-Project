@@ -1,27 +1,79 @@
-.navbarBody{
+.navbarBody {
     display: flex;
     flex-direction: column;
     position: sticky;
     top: 0px;
 }
 
-.navbarBody h1{
+.navbarBody h1 {
     font-family: Cera;
     font-weight: normal;
 }
 
 .top{
-    background: #000;
     width: 100%;
-    height: 50px;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
 }
 
 .bottom{
+    width: 100%;
     background-color: #F4F5F9;
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
     border-bottom: 1px solid #9FA5BE;
+}
+
+.topContent {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    padding: 0px 50px;
+    width: 60%;
+}
+
+.topContent h1{
+    font-size: 24px;
+    font-family: Cera;
+    color: #fff;
+}
+
+.bottomContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 60%;
+    height: 50px;
+    font-family: Cera;
+    font-size: 14px;
+    color: #42454D;
+}
+
+.bottomContent p {
+    flex-basis: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.navIcon{
+    color: #9FA5BE;
+    transition: 0.12s ease-out;
+}
+
+.navIcon:hover{
+    color: #fff;
+}
+
+
+
+
+
+
+.lightDataBlue {
+    color: #8298EE;
 }

@@ -28,7 +28,7 @@ function CoinCard(props) {
         <p>{props.dailyVolume}</p>
       </div>
       <div className={css.marketCap}>
-        {hasMarketCap === 'No market cap!'
+        {hasMarketCap === 'N/A'
           ? <p style={{ color: '#D82F2F' }}>{props.marketCap}</p>
           : <p>{props.marketCap}</p>
         }

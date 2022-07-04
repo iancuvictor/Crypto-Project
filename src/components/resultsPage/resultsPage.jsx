@@ -3,6 +3,7 @@ import { CoinCard } from '../exports';
 import css from './resultsPage.module.css';
 import { useQuery } from 'react-query';
 import { Line } from 'react-chartjs-2';
+import { formatNumber } from '../../utils/formatNumbers';
 import { Chart, LineController, LineElement, PointElement, LinearScale, CategoryScale, Title, BarElement, Filler } from 'chart.js';
 Chart.register(LineController, LineElement, PointElement, LinearScale, CategoryScale, Title, BarElement, Filler );
 
@@ -75,7 +76,7 @@ function ResultsPage() {
 
                 // Check if marketCap value is null
                 if(coin.marketCap === null){
-                    marketCapValue = 'No market cap!';
+                    marketCapValue = 'N/A';
                 } else {
                     marketCapValue = coin.marketCap;
                 }
@@ -85,11 +86,11 @@ function ResultsPage() {
                         coinName={coin.name}
                         coinIcon={coin.iconUrl}
                         symbol={coin.symbol}
-                        price={(Math.round(coin.price * 100) / 100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        price={(Math.round(coin.price * 100) / 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                         rank={coin.rank}
                         dailyChange={coin.change}
-                        dailyVolume={coin['24hVolume'].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                        marketCap={marketCapValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                        dailyVolume={formatNumber(coin['24hVolume'])}
+                        marketCap={formatNumber(marketCapValue)}
                         chart={
                             <Line
                                 data={{

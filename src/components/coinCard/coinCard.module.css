@@ -4,11 +4,16 @@
     align-items: center;
     width: 100%;
     padding: 0px 50px;
+    box-sizing: border-box;
     border-bottom: 1px solid #9FA5BE;
     background: #F4F5F9;
     transition: 0.12s ease-out;
     font-family: Cera;
     cursor: pointer;
+}
+
+.coinCardBody:hover{
+    background: #fff;
 }
 
 .coin, .price, .dailyChange, .dailyVolume, .marketCap{
@@ -26,10 +31,6 @@
 .chart{
     width: 10%;
     padding: 5px 0px;
-}
-
-.coinCardBody:hover{
-    background: #fff;
 }
 
 .coinCardBody p{
