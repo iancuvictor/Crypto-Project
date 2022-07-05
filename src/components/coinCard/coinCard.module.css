@@ -103,22 +103,37 @@
 }
 
 @media screen and (max-width: 800px) {
-    .dailyVolume, .marketCap, .rank{
-        display: none;
-    }
     .price{
-        flex: 0 0 25%;
+        flex: 0 0 15%;
         padding: 0px;
-    }
-    .coinCardBody{
-        overflow-x: scroll;
-        padding: 0px 15px;
     }
     .coinCardBody p {
         font-size: 12px;
     }
     .coin{
         flex: 1 0 5%;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .dailyVolume, .marketCap{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .rank{
+        display: none;
+    }
+    .price{
+        flex: 0 0 25%;
+    }
+    .coinCardBody {
+            overflow-x: scroll;
+            padding: 0px 15px;
+    }
+    .chart{
+        min-width: 80px;
     }
 }
 

@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 50px;
 }
 
 .bottom{
@@ -25,6 +26,7 @@
     display: flex;
     justify-content: center;
     border-bottom: 1px solid #9FA5BE;
+    height: 50px;
 }
 
 .topContent {
@@ -32,7 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 50px;
+    height: 100%;
     width: 70%;
 }
 
@@ -49,14 +51,14 @@
     padding: 0px 20px;
     box-sizing: border-box;
     width: 70%;
-    height: 50px;
+    height: 100%;
     font-family: Cera;
     font-size: 14px;
     color: #42454D;
 }
 
 .bottomContent p {
-    flex: 1 0 0;
+    flex: 1 0 auto;
     padding-right: 10px;
     display: flex;
     align-items: center;
@@ -81,14 +83,22 @@
     color: #8298EE;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
     .bottomContent{
         width: 100%;
         overflow-x: scroll;
+        gap: 20px;
     }
+    .topContent {
+        width: 100%;
+        padding: 0px 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
 
     .navbarBody h1 {
-        font-size: 16px;
+        font-size: 24px;
     }
 
     .navIcon{
@@ -97,6 +107,12 @@
 
     .bottomContent p{
         flex-basis: auto;
-        font-size: 10px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbarBody h1 {
+            font-size: 16px;
     }
 }
