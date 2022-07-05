@@ -6,3 +6,9 @@
   font-family: Cera;
   src: url('./fonts/neue-haas-display-7.ttf'); /* src: url('./fonts/Circular/CircularStd-Medium.otf'); */
 }
+
+/** {
+  background: #000 !important;
+  color: #0f0 !important;
+  outline: solid #f00 1px !important;
+}*/

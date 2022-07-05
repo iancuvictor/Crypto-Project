@@ -1,9 +1,9 @@
-.coinCardBody{
+.coinCardBody {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 0px 50px;
+    padding: 0px 20px;
     box-sizing: border-box;
     border-bottom: 1px solid #9FA5BE;
     background: #F4F5F9;
@@ -12,32 +12,113 @@
     cursor: pointer;
 }
 
-.coinCardBody:hover{
+.coinCardBody:hover {
     background: #fff;
 }
 
-.coin, .price, .dailyChange, .dailyVolume, .marketCap{
+.coin {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
-    flex-basis: 10%;
+    flex: 0 1 15%;
+    padding-right: 20px;
 }
 
-.rank{
-    flex-basis: 5%;
+.price{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 0 1 10%;
+    padding: 0px 20px;
 }
 
-.chart{
+.price p, .dailyChange p, .dailyVolume p, .marketCap p{
+    margin: 0;
+}
+
+.dailyChange,
+.dailyVolume,
+.marketCap {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 0 1 10%;
+    padding: 0px 20px;
+}
+
+.rank {
+    flex: 0 1;
+    padding: 0px 20px;
+}
+
+.chart {
     width: 10%;
     padding: 5px 0px;
+    min-width: 100px;
 }
 
-.coinCardBody p{
-    font-size: 16px;
+.dailyChangePrice{
+    display: none;
 }
 
-.coinIcon{
+.coinCardBody p {
+    font-size: 15px;
+}
+
+.coinIcon {
     width: 24px;
+}
+
+@media screen and (max-width: 1200px) {
+    .results {
+        width: 100%;
+    }
+
+    .coinCardBody p {
+        font-size: 13px;
+    }
+
+    .coin{
+        flex: 1 0 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .dailyChangePrice{
+        display: flex;
+    }
+    .dailyChange{
+        display: none;
+    }
+
+    .coin{
+        flex: 1 0 0;
+    }
+    
+    .price, .dailyVolume, .marketCap {
+        flex: 0 0 10%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .dailyVolume, .marketCap, .rank{
+        display: none;
+    }
+    .price{
+        flex: 0 0 25%;
+        padding: 0px;
+    }
+    .coinCardBody{
+        overflow-x: scroll;
+        padding: 0px 15px;
+    }
+    .coinCardBody p {
+        font-size: 12px;
+    }
+    .coin{
+        flex: 1 0 5%;
+    }
 }
 

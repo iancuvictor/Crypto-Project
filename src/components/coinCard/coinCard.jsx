@@ -1,6 +1,6 @@
 import React from 'react';
 import css from './coinCard.module.css';
-import { AiFillDollarCircle } from 'react-icons/ai';
+//import { AiFillDollarCircle } from 'react-icons/ai';
 
 function CoinCard(props) {
 
@@ -15,22 +15,25 @@ function CoinCard(props) {
         <p>{props.coinName} <span style={{ color: '#4D4E52'}}>({props.symbol})</span></p>
       </div>
       <div className={css.price}>
-        <AiFillDollarCircle size={24} />
-        <p>{props.price}</p>
+        <p>$ {props.price}</p>
+        {isPositive > 0
+          ? <p className={css.dailyChangePrice} style={{ color: '#35e18c' }}>+{props.dailyChange}%</p>
+          : <p className={css.dailyChangePrice} style={{ color: '#D82F2F' }}>{props.dailyChange}%</p>
+        }
       </div>
       <div className={css.dailyChange}>
         {isPositive > 0
-          ? <p style={{ color: '#18E08A' }}>+{props.dailyChange}%</p>
+          ? <p style={{ color: '#35e18c' }}>+{props.dailyChange}%</p>
           : <p style={{ color: '#D82F2F' }}>{props.dailyChange}%</p>
         }
       </div>
       <div className={css.dailyVolume}>
-        <p>{props.dailyVolume}</p>
+        <p>$ {props.dailyVolume}</p>
       </div>
       <div className={css.marketCap}>
         {hasMarketCap === 'N/A'
-          ? <p style={{ color: '#D82F2F' }}>{props.marketCap}</p>
-          : <p>{props.marketCap}</p>
+          ? <p style={{ color: '#D82F2F' }}>$ {props.marketCap}</p>
+          : <p>$ {props.marketCap}</p>
         }
       </div>
       <div className={css.chart}>

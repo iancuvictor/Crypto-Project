@@ -1,5 +1,3 @@
-// Code took off stackoverflow because who the fuck knew about toPrecision:)
-
 export function formatNumber(value) {
     let newValue = value;
     const suffixes = ["", " K", " M", " B", " T"];

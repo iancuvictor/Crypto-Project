@@ -3,6 +3,7 @@
     flex-direction: column;
     position: sticky;
     top: 0px;
+    width: 100%;
 }
 
 .navbarBody h1 {
@@ -15,6 +16,7 @@
     background-color: #000;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .bottom{
@@ -31,8 +33,7 @@
     align-items: center;
     justify-content: space-between;
     height: 50px;
-    padding: 0px 50px;
-    width: 60%;
+    width: 70%;
 }
 
 .topContent h1{
@@ -44,9 +45,10 @@
 .bottomContent {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding: 0px 20px;
     box-sizing: border-box;
-    width: 60%;
+    width: 70%;
     height: 50px;
     font-family: Cera;
     font-size: 14px;
@@ -54,7 +56,8 @@
 }
 
 .bottomContent p {
-    flex-basis: 20%;
+    flex: 1 0 0;
+    padding-right: 10px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -76,4 +79,24 @@
 
 .lightDataBlue {
     color: #8298EE;
+}
+
+@media screen and (max-width: 800px) {
+    .bottomContent{
+        width: 100%;
+        overflow-x: scroll;
+    }
+
+    .navbarBody h1 {
+        font-size: 16px;
+    }
+
+    .navIcon{
+        height: 20px;
+    }
+
+    .bottomContent p{
+        flex-basis: auto;
+        font-size: 10px;
+    }
 }

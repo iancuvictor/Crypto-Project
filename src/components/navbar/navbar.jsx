@@ -53,18 +53,18 @@ function Navbar(props) {
         <div className={css.topContent}>
         <h1>CryptoCurrency Project</h1>
         <a href='https://github.com/iancuvictor'>
-          <SiGithub className={css.navIcon} size={25} />
+            <SiGithub className={css.navIcon} size={25}/>
         </a>
         </div>
       </div>
 
       <div className={css.bottom}>
         <div className={css.bottomContent}>
-          <p>Coins: {formatNumber(data.data.totalCoins)}</p>
-          <p>Markets: {formatNumber(data.data.totalMarkets)}</p>
-          <p>24 Hour Volume: {formatNumber(data.data.total24hVolume)} USD</p>
-          <p>Market Cap: $ {formatNumber(data.data.totalMarketCap)} USD</p>
-          <p>Dominance: BTC {formatNumber(data.data.btcDominance)}%</p>
+          <p>Coins:&nbsp;<span style={{ color: '#000' }}>{formatNumber(data.data.totalCoins)}</span></p>
+          <p>Markets:&nbsp;<span style={{ color: '#000' }}>{formatNumber(data.data.totalMarkets)}</span></p>
+          <p>24 Hour Volume:&nbsp;<span style={{ color: '#000' }}>$ {formatNumber(data.data.total24hVolume)} USD</span></p>
+          <p>Market Cap:&nbsp;<span style={{ color: '#000' }}>$ {formatNumber(data.data.totalMarketCap)} USD</span></p>
+          <p>Dominance:&nbsp;<span style={{ color: '#000' }}>BTC {formatNumber(data.data.btcDominance)}%</span></p>
         </div>
       </div>
     </div>
