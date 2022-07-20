@@ -51,7 +51,7 @@ function Navbar(props) {
 
       <div className={css.top}>
         <div className={css.topContent}>
-        <h1>CryptoCurrency Project</h1>
+          <h1>CryptoCurrency Project | <span style={{ color: '#9FA5BE' }}>Statistics</span></h1>
         <a href='https://github.com/iancuvictor'>
             <SiGithub className={css.navIcon} size={25}/>
         </a>

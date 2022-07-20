@@ -1,5 +1,5 @@
 import './App.css';
-import { ResultsPage , Navbar } from './components/exports';
+import { ResultsPage , Navbar, FrontPage } from './components/exports';
 import { QueryClientProvider, QueryClient } from 'react-query';
 
 const queryClient = new QueryClient();
@@ -10,8 +10,8 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         <Navbar/>
-
-        <ResultsPage />
+        {/*<ResultsPage />*/}
+        <FrontPage/>
       </div>
     </QueryClientProvider>
   );

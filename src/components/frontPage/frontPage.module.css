@@ -1,0 +1,20 @@
+.frontPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #fff;
+}
+
+.content{
+    font-family: Cera;
+}
+
+.content h1{
+    font-size: 50px;
+    color: #000;
+}
+
+.content p{
+    font-size: 20px;
+}
