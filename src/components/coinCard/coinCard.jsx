@@ -12,7 +12,7 @@ function CoinCard(props) {
       <p className={css.rank}>{props.rank}</p>
       <div className={css.coin}>
         <img className={css.coinIcon} src={props.coinIcon} alt='Coin Icon' />
-        <p>{props.coinName} <span style={{ color: '#4D4E52'}}>({props.symbol})</span></p>
+        <p>{props.coinName} <span style={{ color: '#929195'}}>({props.symbol})</span></p>
       </div>
       <div className={css.price}>
         <p>$ {props.price}</p>
@@ -24,7 +24,7 @@ function CoinCard(props) {
       <div className={css.dailyChange}>
         {isPositive > 0
           ? <p style={{ color: '#35e18c' }}>+{props.dailyChange}%</p>
-          : <p style={{ color: '#D82F2F' }}>{props.dailyChange}%</p>
+          : <p style={{ color: '#d6393a' }}>{props.dailyChange}%</p>
         }
       </div>
       <div className={css.dailyVolume}>

@@ -18,15 +18,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 70px;
 }
 
 .bottom{
     width: 100%;
-    background-color: #F4F5F9;
+    background-color: #0f0f23;
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid #9FA5BE;
+    border-bottom: 1px solid #181837;
     height: 50px;
 }
 
@@ -45,6 +45,33 @@
     color: #fff;
 }
 
+.topContent .navLink{
+    color: #d2d1d6;
+    text-decoration: none;
+    transition: 0.12s ease-out;
+    font-family: Cera;
+}
+
+.topContent .navLink:hover{
+    color: #00e0b8;
+}
+
+.loginButton {
+    font-family: Cera;
+    text-decoration: none;
+    color: #fff;
+    background: #07071c;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.12s ease-out;
+    border: 1px solid #00e0b8;
+}
+
+.loginButton:hover {
+    background: #00e0b8;
+    color: #07071c;
+}
+
 .bottomContent {
     display: flex;
     align-items: center;
@@ -55,7 +82,7 @@
     height: 100%;
     font-family: Cera;
     font-size: 14px;
-    color: #42454D;
+    color: #fff;
 }
 
 .bottomContent p {

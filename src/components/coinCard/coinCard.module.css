@@ -6,14 +6,15 @@
     padding: 0px 20px;
     box-sizing: border-box;
     border-bottom: 1px solid #9FA5BE;
-    background: #F4F5F9;
+    background: #0f0f23;
     transition: 0.12s ease-out;
     font-family: Cera;
     cursor: pointer;
+    color: #d2d1d6;
 }
 
 .coinCardBody:hover {
-    background: #fff;
+    background: #13132d;
 }
 
 .coin {

@@ -3,18 +3,76 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #fff;
+    background: #07071c;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(7, 7, 28, 1) 60%, rgba(18, 16, 52, 1) 100%);
 }
 
 .content{
     font-family: Cera;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .content h1{
     font-size: 50px;
-    color: #000;
+    margin: 0;
 }
 
 .content p{
     font-size: 20px;
+    color: #787884;
+    margin: 0;
+}
+
+.linkButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    font-family: Cera;
+    text-decoration: none;
+    color: #00e0b8;
+    background: #07071c;
+    padding: 20px;
+    border-radius: 25px;
+    transition: 0.12s ease-out;
+    border: 3px solid #00e0b8;
+}
+
+.linkButton:hover{
+    background: #00e0b8;
+    color: #07071c;
+}
+
+.showcaseData{
+    width: 100%;
+    display: flex;
+    gap: 30px;
+}
+
+.tradeVolume, .totalExchanges, .marketCap{
+    flex: 0 0 33%;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tradeVolume{
+    border: 3px solid;
+    border-image: linear-gradient(to bottom, #6861da, rgba(0, 0, 0, 0)) 1 100% 0 stretch;
+}
+
+.totalExchanges {
+    border: 3px solid;
+    border-image: linear-gradient(to bottom, #01d3ae, rgba(0, 0, 0, 0)) 1 100% 0 stretch;
+}
+
+.marketCap {
+    border: 3px solid;
+    border-image: linear-gradient(to bottom, #268bcd, rgba(0, 0, 0, 0)) 1 100% 0 stretch;
 }
